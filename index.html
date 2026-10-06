@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>French Wine Discovery · Japan</title>
+<meta name="description" content="Inter Markt group work: a French wine discovery subscription, market screening and entry strategy for Japan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d1d1f; --ink-2:#6e6e73; --ink-3:#86868b;
+  --bg:#ffffff; --bg-alt:#f5f5f7; --line:#d2d2d7;
+  --accent:#0071e3; --accent-ink:#0066cc;
+  --wine:#7a1f35; --wine-soft:#f6e9ec;
+  --bar:#c7c7cc; --card:#ffffff;
+  --dark:#000; --dark-ink:#f5f5f7;
+  --radius:22px;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ink:#f5f5f7; --ink-2:#a1a1a6; --ink-3:#8e8e93;
+    --bg:#000; --bg-alt:#111113; --line:#333336;
+    --accent:#2997ff; --accent-ink:#2997ff;
+    --wine:#e0718a; --wine-soft:#2a1419;
+    --bar:#48484a; --card:#1c1c1e;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.47;-webkit-font-smoothing:antialiased;letter-spacing:-.011em}
+a{color:var(--accent-ink);text-decoration:none}
+strong{font-weight:600}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.nav-in{max-width:1024px;margin:0 auto;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 22px}
+.brand{font-weight:600;font-size:17px;color:var(--ink)}
+.nav ul{display:flex;gap:26px;list-style:none}
+.nav ul a{font-size:12px;color:var(--ink);opacity:.8;transition:opacity .2s}
+.nav ul a:hover{opacity:1}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* LAYOUT */
+section{padding:120px 22px}
+.alt{background:var(--bg-alt)}
+.wrap{max-width:980px;margin:0 auto}
+.narrow{max-width:720px;margin:0 auto}
+.eyebrow{font-size:17px;font-weight:600;color:var(--wine);margin-bottom:10px}
+h1{font-size:clamp(44px,8vw,88px);line-height:1.04;font-weight:700;letter-spacing:-.035em}
+h2{font-size:clamp(34px,5.5vw,56px);line-height:1.07;font-weight:700;letter-spacing:-.03em;margin-bottom:22px}
+h3{font-size:clamp(22px,3vw,28px);line-height:1.14;font-weight:600;letter-spacing:-.02em;margin-bottom:12px}
+.lead{font-size:clamp(19px,2.4vw,24px);line-height:1.38;color:var(--ink-2);font-weight:500;letter-spacing:-.015em}
+.lead strong{color:var(--ink)}
+p+p{margin-top:16px}
+.center{text-align:center}
+.muted{color:var(--ink-2)}
+.gap-s{margin-top:24px}.gap{margin-top:56px}.gap-l{margin-top:88px}
+
+/* HERO */
+.hero{padding:140px 22px 120px;text-align:center;overflow:hidden}
+.hero h1 span{background:linear-gradient(100deg,var(--wine),#b3364f 45%,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{max-width:680px;margin:28px auto 0}
+.hero .plus{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:10px 20px;border-radius:999px;background:var(--bg-alt);font-size:15px;font-weight:500}
+.hero .plus b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--wine);color:#fff;font-size:15px}
+.cta{display:flex;gap:22px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;background:var(--accent);color:#fff;font-size:17px}
+.link::after{content:" ›"}
+.glass{margin:80px auto 0;width:min(320px,70vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d9566f 0%,#7a1f35 45%,#3a0c18 75%);box-shadow:0 60px 120px -30px rgba(122,31,53,.55);position:relative}
+.glass::after{content:"83%";position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:clamp(44px,9vw,72px);font-weight:700;letter-spacing:-.04em}
+.glass-cap{margin-top:18px;font-size:14px;color:var(--ink-3)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.stat{background:var(--card);border-radius:var(--radius);padding:32px 28px}
+.alt .stat{background:var(--card)}
+.stat .n{font-size:clamp(40px,6vw,56px);font-weight:700;letter-spacing:-.04em;line-height:1}
+.stat .l{margin-top:10px;color:var(--ink-2);font-size:15px}
+
+/* WEIGHTS */
+.weights{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+.w{background:var(--card);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:14px}
+.w .pct{font-size:36px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.w .name{font-size:14px;color:var(--ink-2);font-weight:500}
+.w .meter{height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.w .meter i{display:block;height:100%;border-radius:3px;background:var(--wine);width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1)}
+.in .w .meter i{width:var(--v)}
+
+/* RANKING BARS */
+.rank{display:flex;flex-direction:column;gap:14px}
+.row{display:grid;grid-template-columns:120px 1fr 56px;align-items:center;gap:16px;font-size:17px;position:relative}
+.row .c{font-weight:500}
+.row .track{height:28px;position:relative}
+.row .bar{height:100%;width:0;border-radius:0 6px 6px 0;background:var(--bar);transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.in .row .bar{width:var(--v)}
+.row.win .bar{background:var(--wine)}
+.row .v{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.row.win .c,.row.win .v{color:var(--wine)}
+.row .tip{position:absolute;left:136px;top:-34px;background:var(--ink);color:var(--bg);font-size:12px;padding:5px 9px;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap}
+.row:hover .tip{opacity:1}
+@media (max-width:560px){.row{grid-template-columns:92px 1fr 48px;font-size:15px}.row .tip{left:100px}}
+
+/* TABLES */
+.tcard{background:var(--card);border-radius:var(--radius);padding:8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+th,td{padding:16px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+thead th{font-size:13px;font-weight:600;color:var(--ink-2);text-transform:none;letter-spacing:0}
+tbody th{font-weight:600;white-space:nowrap}
+td .s{display:block;font-weight:700;font-size:17px;letter-spacing:-.01em}
+td .d{display:block;color:var(--ink-2);font-size:14px;margin-top:2px}
+.hl{background:var(--wine-soft)}
+th.hl{color:var(--wine)}
+tr.total td,tr.total th{font-size:19px;font-weight:700;padding-top:20px;padding-bottom:20px}
+tr.total td.hl{color:var(--wine)}
+.num td{font-variant-numeric:tabular-nums}
+.scroll-hint{display:none;font-size:13px;color:var(--ink-3);margin-top:10px;text-align:center}
+@media (max-width:700px){.scroll-hint{display:block}}
+
+/* CALC */
+.calc{background:var(--card);border-radius:var(--radius);padding:36px}
+.calc ul{list-style:none;margin-top:18px}
+.calc li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:16px}
+.calc li code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:14px;color:var(--ink-2)}
+.calc li b{font-variant-numeric:tabular-nums}
+.calc .sum{display:flex;justify-content:space-between;align-items:baseline;margin-top:22px;font-size:19px;font-weight:600;flex-wrap:wrap;gap:8px}
+.calc .sum span:last-child{font-size:40px;font-weight:700;letter-spacing:-.03em}
+.calc .note{margin-top:14px;font-size:14px;color:var(--ink-3)}
+
+/* SENSITIVITY */
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px}
+.sens{background:var(--card);border-radius:var(--radius);padding:36px 28px;display:flex;flex-direction:column}
+.sens .chip{align-self:flex-start;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--bg-alt);margin-bottom:16px}
+.alt .sens .chip{background:var(--bg-alt)}
+.sens table{min-width:0;font-size:14px}
+.sens th,.sens td{padding:12px 8px}
+.sens p{margin-top:20px;color:var(--ink-2);font-size:15px}
+.sens p strong{color:var(--ink)}
+.big{font-size:clamp(48px,7vw,64px);font-weight:700;letter-spacing:-.04em;color:var(--wine);line-height:1;margin:6px 0 18px}
+
+/* WAY IN */
+.statement{font-size:clamp(28px,4.4vw,44px);line-height:1.12;font-weight:700;letter-spacing:-.03em}
+.statement em{font-style:normal;color:var(--wine)}
+.callout{margin-top:40px;border-radius:var(--radius);padding:32px;background:var(--bg-alt)}
+.callout .k{font-size:13px;font-weight:600;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.dials{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:20px}
+.dial{background:var(--card);border-radius:var(--radius);padding:32px}
+.dial .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:18px}
+.dial .top h3{margin:0}
+.lvl{font-size:13px;font-weight:600;padding:5px 12px;border-radius:999px;background:var(--wine-soft);color:var(--wine);white-space:nowrap}
+.gc{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.gc .k{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.gc .give .k{color:#248a3d}.gc .cost .k{color:#c4314b}
+@media (prefers-color-scheme: dark){.gc .give .k{color:#30d158}.gc .cost .k{color:#ff6961}}
+.gc p{font-size:15px;color:var(--ink-2)}
+@media (max-width:520px){.gc{grid-template-columns:1fr}}
+.qa{display:grid;gap:20px}
+.qa .q{font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+.qa .a{margin-top:12px;font-size:19px;color:var(--ink-2)}
+.qa .a strong{color:var(--ink)}
+.qcard{background:var(--card);border-radius:var(--radius);padding:36px}
+
+/* THRESHOLDS */
+.thr{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:640px){.thr{grid-template-columns:1fr}}
+.col{border-radius:var(--radius);padding:32px;background:var(--card)}
+.col h3{display:flex;align-items:center;gap:10px}
+.col h3 .dot{width:10px;height:10px;border-radius:50%}
+.col.go h3 .dot{background:#30d158}.col.stop h3 .dot{background:#ff453a}
+.col ul{list-style:none;margin-top:12px}
+.col li{padding:18px 0;border-top:1px solid var(--line)}
+.col li .n{display:block;font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+.col li .t{display:block;color:var(--ink-2);font-size:15px;margin-top:4px}
+
+/* FINAL */
+.final{background:var(--dark);color:var(--dark-ink);text-align:center;padding:160px 22px}
+.final .eyebrow{color:#e0718a}
+.final blockquote{font-size:clamp(32px,5.4vw,60px);line-height:1.08;font-weight:700;letter-spacing:-.035em;max-width:900px;margin:0 auto}
+.final blockquote span{background:linear-gradient(100deg,#ff8aa3,#e0718a 40%,#2997ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+footer{padding:40px 22px;font-size:12px;color:var(--ink-3);background:var(--bg-alt)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+
+section:not(.alt) .w,section:not(.alt) .tcard,section:not(.alt) .calc,section:not(.alt) .qcard{background:var(--bg-alt)}
+section:not(.alt) .qcard + .qcard{background:var(--bg-alt)}
+.calc li code{white-space:nowrap}
+@media (max-width:560px){.calc{padding:24px 20px}.calc li{display:grid;grid-template-columns:1fr auto;row-gap:2px}.calc li code{grid-column:1;grid-row:2;font-size:12px}.calc li b{grid-row:1/3;grid-column:2;align-self:center}}
+/* TABS */
+.tabs a{padding:6px 12px;border-radius:999px;opacity:.75}
+.tabs a.on{opacity:1;background:var(--bg-alt);font-weight:600}
+.mtabs{display:none;position:sticky;top:48px;z-index:49;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:8px 16px;border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent)}
+.mtabs .seg{display:grid;grid-template-columns:repeat(4,1fr);background:var(--bg-alt);border-radius:10px;padding:3px}
+.mtabs a{text-align:center;font-size:13px;padding:7px 4px;border-radius:8px;color:var(--ink);font-weight:500}
+.mtabs a.on{background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.12);font-weight:600}
+@media (max-width:760px){.mtabs{display:block}}
+.page[hidden]{display:none}
+.phead{padding:120px 22px 0;text-align:center}
+.phead + section{padding-top:72px}
+.jp{color:var(--wine)}
+.qnav{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px}
+.qn{display:flex;flex-direction:column;gap:10px;background:var(--bg-alt);border-radius:var(--radius);padding:32px;color:var(--ink);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.qn:hover{transform:scale(1.02)}
+.qn-k{font-size:14px;font-weight:600;color:var(--wine)}
+.qn-t{font-size:28px;font-weight:700;letter-spacing:-.025em;line-height:1.1}
+.qn-d{color:var(--ink-2);font-size:16px;flex:1}
+.qn-go{color:var(--accent-ink);font-size:17px;margin-top:8px}
+.qn-go::after{content:" ›"}
+.next{display:block;text-align:center;padding:72px 22px;font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.025em;color:var(--ink);border-top:1px solid var(--line)}
+.next span{display:block;font-size:14px;font-weight:600;color:var(--ink-3);letter-spacing:0;margin-bottom:6px}
+.next::after{content:" ›";color:var(--accent-ink)}
+.next.dark{border:none;color:var(--dark-ink);padding:80px 0 0;font-size:20px}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}.row .bar,.w .meter i{transition:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#home">Inter Markt</a>
+    <ul class="tabs" role="tablist">
+      <li><a href="#home" data-tab="home">Home</a></li>
+      <li><a href="#q1" data-tab="q1">Q1 · Screening</a></li>
+      <li><a href="#q2" data-tab="q2">Q2 · Sensitivity</a></li>
+      <li><a href="#q3" data-tab="q3">Q3 · Way in</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="mtabs"><div class="seg">
+  <a href="#home" data-tab="home">Home</a><a href="#q1" data-tab="q1">Q1</a><a href="#q2" data-tab="q2">Q2</a><a href="#q3" data-tab="q3">Q3</a>
+</div></div>
+
+<main class="page" id="home" data-page="home">
+<header class="hero">
+  <p class="eyebrow reveal">Inter Markt · Group work</p>
+  <h1 class="reveal">French wines.<br><span>Discovered in Japan.</span></h1>
+  <p class="lead reveal">A monthly subscription service for discovering wines from various French vineyards in Japan.</p>
+  <div class="reveal"><span class="plus"><b>+</b> An online shop to buy the wines they liked</span></div>
+  <div class="cta reveal">
+    <a class="btn" href="#q1">Start with question 1</a>
+    <a class="link" href="#q3">Our way in</a>
+  </div>
+  <div class="glass reveal" role="img" aria-label="Japan screening score: 83%"></div>
+  <p class="glass-cap reveal">Japan’s overall screening score, the highest of the five markets.</p>
+</header>
+
+<!-- CONTEXT -->
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow reveal">Market context</p>
+    <h2 class="reveal">A complex and evolving situation.</h2>
+    <div class="stats gap-s reveal">
+      <div class="stat"><div class="n">€14 bn</div><div class="l">Contribution of wine &amp; spirits exports to France’s trade balance in 2024</div></div>
+      <div class="stat"><div class="n">€16.5 bn</div><div class="l">Turnover of French wines and spirits in 2024</div></div>
+      <div class="stat"><div class="n">2025</div><div class="l">A significant decline in wine imports</div></div>
+    </div>
+    <div class="narrow gap reveal">
+      <p class="lead">Data on the turnover of French wine in Japan reveals a complex and evolving situation. In 2024, exports of wines and spirits contributed <strong>14 billion euros</strong> to France’s trade balance, with a turnover of <strong>16.5 billion euros</strong> for wines and spirits. In 2025, France experienced a significant decline in wine imports, reflecting economic challenges and shifts in consumer preferences. French wines, particularly those from Bordeaux, enjoy an exceptional reputation in China, but competition from Australia and Chile is intensifying.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow reveal">The project in three questions</p>
+    <h2 class="reveal">From intuition to entry plan.</h2>
+    <div class="qnav gap reveal">
+      <a href="#q1" class="qn"><span class="qn-k">Question 1</span><span class="qn-t">Market screening</span><span class="qn-d">Six weighted criteria, five markets, one winner.</span><span class="qn-go">Explore</span></a>
+      <a href="#q2" class="qn"><span class="qn-k">Question 2</span><span class="qn-t">Sensitivity tests</span><span class="qn-d">Doubling and halving the weight of wine consumption.</span><span class="qn-go">Explore</span></a>
+      <a href="#q3" class="qn"><span class="qn-k">Question 3</span><span class="qn-t">Choose your way in</span><span class="qn-d">Entry mode, four dials, local partner and 90-day thresholds.</span><span class="qn-go">Explore</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Q1 SCREENING -->
+<main class="page" id="q1" data-page="q1" hidden>
+<header class="phead"><p class="eyebrow reveal">Question 1</p><h1 class="reveal">Market screening.</h1></header>
+<section>
+  <div class="wrap">
+    <h2 class="reveal">Six criteria. Five markets.<br>One clear winner.</h2>
+
+    <h3 class="gap reveal">Criteria weighting</h3>
+    <div class="weights reveal">
+      <div class="w"><div class="pct">5%</div><div class="meter"><i style="--v:20%"></i></div><div class="name">Market size</div></div>
+      <div class="w"><div class="pct">10%</div><div class="meter"><i style="--v:40%"></i></div><div class="name">Purchasing power</div></div>
+      <div class="w"><div class="pct">20%</div><div class="meter"><i style="--v:80%"></i></div><div class="name">Wine consumption</div></div>
+      <div class="w"><div class="pct">20%</div><div class="meter"><i style="--v:80%"></i></div><div class="name">Wine imports</div></div>
+      <div class="w"><div class="pct">25%</div><div class="meter"><i style="--v:100%"></i></div><div class="name">Regulation</div></div>
+      <div class="w"><div class="pct">20%</div><div class="meter"><i style="--v:80%"></i></div><div class="name">Logistics</div></div>
+    </div>
+
+    <h3 class="gap-l reveal">Overall score</h3>
+    <div class="rank reveal" role="list" aria-label="Overall screening score by country">
+      <div class="row win" role="listitem"><span class="c">Japan</span><div class="track"><div class="bar" style="--v:83%"></div></div><span class="v">83%</span><span class="tip">Japan · 83%</span></div>
+      <div class="row" role="listitem"><span class="c">South Korea</span><div class="track"><div class="bar" style="--v:82%"></div></div><span class="v">82%</span><span class="tip">South Korea · 82%</span></div>
+      <div class="row" role="listitem"><span class="c">China</span><div class="track"><div class="bar" style="--v:77%"></div></div><span class="v">77%</span><span class="tip">China · 77%</span></div>
+      <div class="row" role="listitem"><span class="c">Singapore</span><div class="track"><div class="bar" style="--v:65%"></div></div><span class="v">65%</span><span class="tip">Singapore · 65%</span></div>
+      <div class="row" role="listitem"><span class="c">South Africa</span><div class="track"><div class="bar" style="--v:62%"></div></div><span class="v">62%</span><span class="tip">South Africa · 62%</span></div>
+    </div>
+
+    <h3 class="gap-l reveal">Detailed scoring</h3>
+    <div class="tcard reveal">
+      <table>
+        <thead><tr><th>Criteria</th><th>China</th><th class="hl">Japan</th><th>South Korea</th><th>Singapore</th><th>South Africa</th></tr></thead>
+        <tbody>
+          <tr><th>1. Market size</th><td><span class="s">5/5</span><span class="d">1.405 bn inhabitants</span></td><td class="hl"><span class="s">3/5</span><span class="d">123 M inhabitants</span></td><td><span class="s">2/5</span><span class="d">52 M inhabitants</span></td><td><span class="s">1/5</span><span class="d">6 M inhabitants</span></td><td><span class="s">2/5</span><span class="d">≈ 64 M inhabitants</span></td></tr>
+          <tr><th>2. Purchasing power</th><td><span class="s">3/5</span><span class="d">GDP/capita ≈ $13,862</span></td><td class="hl"><span class="s">4/5</span><span class="d">≈ $35,951</span></td><td><span class="s">4/5</span><span class="d">≈ $36,227</span></td><td><span class="s">5/5</span><span class="d">≈ $98,814</span></td><td><span class="s">2/5</span><span class="d">≈ $6,267</span></td></tr>
+          <tr><th>3. Wine consumption</th><td><span class="s">5/5</span><span class="d">5.5 Mhl</span></td><td class="hl"><span class="s">4/5</span><span class="d">3.1 Mhl</span></td><td><span class="s">4/5</span><span class="d">Significant market</span></td><td><span class="s">3/5</span><span class="d">Smaller market</span></td><td><span class="s">5/5</span><span class="d">≈ 4.3 Mhl</span></td></tr>
+          <tr><th>4. Wine imports</th><td><span class="s">5/5</span><span class="d">≈ $1.59 bn</span></td><td class="hl"><span class="s">5/5</span><span class="d">≈ $1.7 bn</span></td><td><span class="s">3/5</span><span class="d">≈ $462 M</span></td><td><span class="s">3/5</span><span class="d">≈ $704 M</span></td><td><span class="s">1/5</span><span class="d">≈ $56 M</span></td></tr>
+          <tr><th>5. Regulation</th><td><span class="s">2/5</span><span class="d">Complex regulations</span></td><td class="hl"><span class="s">4/5</span><span class="d">Mature market</span></td><td><span class="s">5/5</span><span class="d">Favorable EU-Korea agreement</span></td><td><span class="s">2/5</span><span class="d">High alcohol taxation</span></td><td><span class="s">4/5</span><span class="d">Favorable EU-SADC trade agreement</span></td></tr>
+          <tr><th>6. Logistics</th><td><span class="s">4/5</span><span class="d">Very good network</span></td><td class="hl"><span class="s">4/5</span><span class="d">Very good network</span></td><td><span class="s">4/5</span><span class="d">Very good network</span></td><td><span class="s">5/5</span><span class="d">Excellent logistics hub</span></td><td><span class="s">3/5</span><span class="d">Developed network but logistical constraints</span></td></tr>
+          <tr class="total"><th>Total</th><td>77%</td><td class="hl">83%</td><td>82%</td><td>65%</td><td>62%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="scroll-hint">Swipe to see all countries</p>
+
+    <h3 class="gap-l reveal">How the score is calculated</h3>
+    <div class="calc reveal">
+      <p class="muted">Example: China. Each criterion’s weight is divided by 5, then multiplied by the grade.</p>
+      <ul>
+        <li><span>Market size</span><code>[5% / 5] × 5</code><b>5%</b></li>
+        <li><span>Purchasing power</span><code>[10% / 5] × 3</code><b>6%</b></li>
+        <li><span>Wine consumption</span><code>[20% / 5] × 5</code><b>20%</b></li>
+        <li><span>Wine imports</span><code>[20% / 5] × 5</code><b>20%</b></li>
+        <li><span>Regulations</span><code>[25% / 5] × 2</code><b>10%</b></li>
+        <li><span>Logistics</span><code>[20% / 5] × 4</code><b>16%</b></li>
+      </ul>
+      <div class="sum"><span>Total China score = 5 + 6 + 20 + 20 + 10 + 16</span><span>77%</span></div>
+      <p class="note">× 3 for purchasing power because the grade is 3/5 on that criterion.</p>
+    </div>
+  </div>
+</section>
+
+<a class="next" href="#q2"><span>Next</span>Question 2 · Sensitivity tests</a>
+</main>
+
+<!-- Q2 SENSITIVITY -->
+<main class="page" id="q2" data-page="q2" hidden>
+<header class="phead"><p class="eyebrow reveal">Question 2</p><h1 class="reveal">Sensitivity tests.</h1></header>
+<section class="alt">
+  <div class="wrap">
+    <h2 class="reveal">We stress-tested the result.<br>Japan held.</h2>
+    <div class="duo gap reveal">
+      <div class="sens">
+        <span class="chip">Wine consumption weight: 20% to 40%</span>
+        <h3>Doubling wine consumption</h3>
+        <div class="big">82.5%</div>
+        <table class="num">
+          <thead><tr><th>Country</th><th>Original</th><th>Doubled</th><th>Normalized</th></tr></thead>
+          <tbody>
+            <tr><th>China</th><td>77%</td><td>97/120</td><td>80.8%</td></tr>
+            <tr class="hl"><th>Japan</th><td>83%</td><td>99/120</td><td><strong>82.5%</strong></td></tr>
+            <tr><th>South Korea</th><td>82%</td><td>95/120</td><td>79.2%</td></tr>
+            <tr><th>Singapore</th><td>65%</td><td>77/120</td><td>64.2%</td></tr>
+            <tr><th>South Africa</th><td>62%</td><td>82/120</td><td>68.3%</td></tr>
+          </tbody>
+        </table>
+        <p>When we double the weight of wine consumption from 20% to 40%, Japan remains the highest-ranked market, with a normalized score of 82.5%. <strong>Therefore, our decision is robust:</strong> even when wine consumption becomes significantly more important, Japan remains our preferred market.</p>
+      </div>
+      <div class="sens">
+        <span class="chip">Wine consumption weight: 20% to 10%</span>
+        <h3>Halving wine consumption</h3>
+        <div class="big">83.3%</div>
+        <table class="num">
+          <thead><tr><th>Country</th><th>Original</th><th>÷ 2</th><th>Normalized</th></tr></thead>
+          <tbody>
+            <tr><th>China</th><td>77%</td><td>67/90</td><td>74.4%</td></tr>
+            <tr class="hl"><th>Japan</th><td>83%</td><td>75/90</td><td><strong>83.3%</strong></td></tr>
+            <tr><th>South Korea</th><td>82%</td><td>74/90</td><td>82.2%</td></tr>
+            <tr><th>Singapore</th><td>65%</td><td>59/90</td><td>65.6%</td></tr>
+            <tr><th>South Africa</th><td>62%</td><td>52/90</td><td>57.8%</td></tr>
+          </tbody>
+        </table>
+        <p>When we halve the weight of wine consumption from 20% to 10%, Japan remains the highest-ranked market, with a normalized score of 83.3%, closely followed by South Korea at 82.2%. <strong>Therefore, the winner does not change</strong> and our choice of Japan remains defensible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a class="next" href="#q3"><span>Next</span>Question 3 · Choose your way in</a>
+</main>
+
+<!-- Q3 WAY IN -->
+<main class="page" id="q3" data-page="q3" hidden>
+<header class="phead"><p class="eyebrow reveal">Question 3</p><h1 class="reveal">Choose your way in.<br><span class="jp">Japan.</span></h1></header>
+<section>
+  <div class="wrap">
+    <p class="eyebrow reveal">1. Our way in</p>
+    <p class="statement reveal">Local importer/distributor<br><em>+ direct-to-consumer online sales.</em></p>
+    <div class="narrow gap reveal" style="margin-left:0">
+      <p class="lead">We would enter Japan through a <strong>local wine importer/distributor</strong>, while keeping control of our brand, subscription concept and online customer experience.</p>
+    </div>
+    <div class="callout reveal">
+      <div class="k">Our assumption</div>
+      <p class="lead" style="font-size:20px">Japanese consumers have sufficient purchasing power and demand for imported wine to support a premium French wine discovery subscription, while a local partner can make market entry faster and easier.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow reveal">2. The four dials</p>
+    <h2 class="reveal">What it gives us.<br>What it costs us.</h2>
+    <div class="dials gap reveal">
+      <div class="dial">
+        <div class="top"><h3>Speed</h3><span class="lvl">High</span></div>
+        <div class="gc"><div class="give"><div class="k">Gives</div><p>An established importer already knows the Japanese market and distribution network.</p></div><div class="cost"><div class="k">Costs</div><p>We depend on the partner’s speed and existing network.</p></div></div>
+      </div>
+      <div class="dial">
+        <div class="top"><h3>Control</h3><span class="lvl">Medium/High</span></div>
+        <div class="gc"><div class="give"><div class="k">Gives</div><p>We keep control of the brand, subscription concept and customer experience. Importance of the French identity.</p></div><div class="cost"><div class="k">Costs</div><p>We lose some control over importation, distribution and final pricing.</p></div></div>
+      </div>
+      <div class="dial">
+        <div class="top"><h3>Cost</h3><span class="lvl">Medium</span></div>
+        <div class="gc"><div class="give"><div class="k">Gives</div><p>Lower initial investment than creating our own Japanese subsidiary.</p></div><div class="cost"><div class="k">Costs</div><p>Importer/distributor margins reduce our profitability.</p></div></div>
+      </div>
+      <div class="dial">
+        <div class="top"><h3>Risk</h3><span class="lvl">Low/Medium</span></div>
+        <div class="gc"><div class="give"><div class="k">Gives</div><p>We can test the concept before making a major investment.</p></div><div class="cost"><div class="k">Costs</div><p>Part of our performance depends on the local partner.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow reveal">3. The outsider question</p>
+    <h2 class="reveal">Who takes us inside?</h2>
+    <div class="qa gap reveal">
+      <div class="qcard">
+        <div class="q">Who takes us inside the local network?</div>
+        <p class="a">A <strong>Japanese wine importer/distributor specialised in French wines</strong>, ideally with experience in e-commerce and premium wines.</p>
+      </div>
+      <div class="qcard" style="background:var(--bg-alt)">
+        <div class="q">What do they know that we don’t?</div>
+        <p class="a">They understand Japanese consumers, local wine distribution, import procedures, pricing, business culture and relationships with retailers and logistics providers.</p>
+      </div>
+    </div>
+    <p class="lead gap reveal center">Our role remains focused on <strong>French wine selection, brand identity, subscription experience and customer relationship.</strong></p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <p class="eyebrow reveal">4. Our 90-day thresholds</p>
+    <h2 class="reveal">Scale, or stop and reassess.</h2>
+    <div class="thr gap reveal">
+      <div class="col go">
+        <h3><span class="dot"></span>Scale</h3>
+        <ul>
+          <li><span class="n">≥ 300</span><span class="t">paying subscribers</span></li>
+          <li><span class="n">≥ 25%</span><span class="t">make an additional purchase on the online shop</span></li>
+          <li><span class="n">≥ 60%</span><span class="t">subscriber retention</span></li>
+        </ul>
+      </div>
+      <div class="col stop">
+        <h3><span class="dot"></span>Stop / Reassess</h3>
+        <ul>
+          <li><span class="n">&lt; 100</span><span class="t">paying subscribers</span></li>
+          <li><span class="n">&lt; 10%</span><span class="t">make an additional purchase</span></li>
+          <li><span class="n">&lt; 35%</span><span class="t">subscriber retention</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead gap reveal center">These thresholds allow us to test three essential things: <strong>customer acquisition, additional wine purchases and retention.</strong></p>
+  </div>
+</section>
+
+<section class="final">
+  <p class="eyebrow reveal">Final research question</p>
+  <blockquote class="reveal">Are Japanese consumers willing to pay regularly for a subscription <span>specifically designed to discover different French wines?</span></blockquote>
+  <a class="next dark" href="#home"><span>Back to</span>Home</a>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Travail groupe Inter Markt</span>
+    <span>French wine discovery subscription · Japan</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages=['home','q1','q2','q3'];
+  var io='IntersectionObserver' in window ? new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'}) : null;
+  function show(){
+    var id=(location.hash||'#home').slice(1);
+    if(pages.indexOf(id)<0) id='home';
+    pages.forEach(function(p){document.getElementById(p).hidden=(p!==id);});
+    document.querySelectorAll('[data-tab]').forEach(function(a){
+      var on=a.getAttribute('data-tab')===id; a.classList.toggle('on',on);
+      if(on) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
+    var titles={home:'French Wine Discovery · Japan',q1:'Q1 · Market screening',q2:'Q2 · Sensitivity tests',q3:'Q3 · Choose your way in'};
+    document.title=titles[id];
+    window.scrollTo(0,0);
+    document.getElementById(id).querySelectorAll('.reveal').forEach(function(e){
+      if(io){e.classList.remove('in');io.unobserve(e);io.observe(e);} else e.classList.add('in');
+    });
+  }
+  window.addEventListener('hashchange',show);
+  show();
+})();
+</script>
+</body>
+</html>
